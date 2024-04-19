@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "880abb31-2861-4554-b88e-d729f76de553",
+		"name": "Food API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11779570"
+	},
+	"item": [
+		{
+			"name": "RESTAURANT",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Get all restaurant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/restaurant/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"restaurant",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get restaurant by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/restaurant/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"restaurant",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Like users by id restaurant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/restaurant/1/likes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"restaurant",
+										"1",
+										"likes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Rate users by id restaurant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/restaurant/1/rates",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"restaurant",
+										"1",
+										"rates"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Like and unlike restaurant",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"res_id\" : 1,\n    \"user_id\" : 8\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/restaurant/like",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"restaurant",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new rate and increase rate restaurant",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"res_id\" : 1,\n    \"user_id\" : 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/restaurant/rate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"restaurant",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Get all user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get user by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Like restaurant by id user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user/2/likes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"2",
+										"likes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get rate restaurant by id user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user/2/rates",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"2",
+										"rates"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\" : 1,\n    \"food_id\" : 3,\n    \"amount\" : 2,\n    \"code\" : \"RANDOMCOUPONCODE\",\n    \"arr_sub_id\" : \"1, 3, 5 ,6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/order",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order with food id not found",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\" : 1,\n    \"food_id\" : 300,\n    \"amount\" : 2,\n    \"code\" : \"RANDOMCOUPONCODE\",\n    \"arr_sub_id\" : \"1, 3, 5 ,6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/order",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
