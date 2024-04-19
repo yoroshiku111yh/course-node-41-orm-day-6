@@ -26,7 +26,7 @@ export const getAllRestaurant = async (req, res) => {
 export const getRestaurantById = async (req, res) => {
   const { id } = req.params;
   const restaurant = await model.restaurant.findByPk(id);
-  if (res) {
+  if (restaurant) {
     return responses({
       res,
       data: restaurant,

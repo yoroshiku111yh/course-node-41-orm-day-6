@@ -31,7 +31,7 @@ export const getUserById = async (req, res) => {
     const user = await model.user.findByPk(id, {
         attributes : {exclude : ["password"]}
     });
-    if(res){
+    if(user){
         return responses({
             res,
             data : user,
